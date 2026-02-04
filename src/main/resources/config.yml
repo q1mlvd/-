@@ -1,0 +1,37 @@
+chipRateMoneyPer1: 10.0
+buyFeePercent: 0.0
+sellFeePercent: 0.0
+houseEdgePercent: 5.0
+minBetChips: 100
+maxBetChips: 100000
+cooldownSeconds: 2
+refundOnQuit: true
+debounceMs: 300
+logsEnabled: true
+enabledGames:
+  slots: true
+  dice: true
+  coinflip: true
+  roulette: true
+slots:
+  symbols:
+    - id: CHERRY
+      weight: 40
+      payout3: 3.0
+      payout2: 1.5
+    - id: LEMON
+      weight: 30
+      payout3: 4.0
+      payout2: 2.0
+    - id: SEVEN
+      weight: 15
+      payout3: 7.0
+      payout2: 3.0
+    - id: DIAMOND
+      weight: 10
+      payout3: 10.0
+      payout2: 4.0
+    - id: GOLD
+      weight: 5
+      payout3: 15.0
+      payout2: 5.0
