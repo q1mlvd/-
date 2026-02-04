@@ -25,6 +25,20 @@ public final class YamlFiles {
         return YamlConfiguration.loadConfiguration(file);
     }
 
+    public static void loadOrReplace(JavaPlugin plugin, String fileName) {
+        File file = new File(plugin.getDataFolder(), fileName);
+        if (file.exists()) {
+            boolean deleted = file.delete();
+            if (!deleted) {
+                plugin.getLogger().warning("Failed to replace " + fileName);
+                return;
+            }
+        } else {
+            file.getParentFile().mkdirs();
+        }
+        plugin.saveResource(fileName, false);
+    }
+
     public static FileConfiguration loadOrCreateEmpty(JavaPlugin plugin, String fileName) {
         File file = new File(plugin.getDataFolder(), fileName);
         if (!file.exists()) {

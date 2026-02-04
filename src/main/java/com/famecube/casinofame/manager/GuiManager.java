@@ -64,6 +64,10 @@ public class GuiManager {
 
     public void reload() {
         this.gui = YamlFiles.loadOrCreate(plugin, "gui.yml");
+        if (gui.getConfigurationSection("main.items") == null) {
+            YamlFiles.loadOrReplace(plugin, "gui.yml");
+            this.gui = YamlFiles.loadOrCreate(plugin, "gui.yml");
+        }
         this.slotsGame = new SlotsGame(plugin.getConfig());
         rebuildActionSounds();
     }
