@@ -298,7 +298,7 @@ public class GuiManager {
         String roundId = fairnessService.createRoundId();
         long seed = new Random().nextLong();
         int delayTicks = 20 + new Random().nextInt(40);
-        startAnimation(player, delayTicks);
+        startAnimation(player, game, delayTicks);
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -325,9 +325,10 @@ public class GuiManager {
         }.runTaskLater(plugin, delayTicks);
     }
 
-    private void startAnimation(Player player, int totalTicks) {
+    private void startAnimation(Player player, String game, int totalTicks) {
         List<String> frames = Msg.getList("animation-frames");
         if (frames == null || frames.isEmpty()) {
+            startVisualAnimation(player, game, totalTicks);
             return;
         }
         int interval = 5;
@@ -350,6 +351,76 @@ public class GuiManager {
                 }
             }
         }.runTaskTimer(plugin, 0L, interval);
+        startVisualAnimation(player, game, totalTicks);
+    }
+
+    private void startVisualAnimation(Player player, String game, int totalTicks) {
+        String key = "animations." + game.toLowerCase();
+        ConfigurationSection section = gui.getConfigurationSection(key);
+        if (section == null) {
+            return;
+        }
+        List<Integer> slots = section.getIntegerList("slots");
+        List<String> frames = section.getStringList("frames");
+        if (slots.isEmpty() || frames.isEmpty()) {
+            return;
+        }
+        String name = section.getString("name", "");
+        List<String> lore = section.getStringList("lore");
+        int interval = 4;
+        int maxRuns = Math.max(1, totalTicks / interval);
+        new BukkitRunnable() {
+            int index = 0;
+            int runs = 0;
+
+            @Override
+            public void run() {
+                if (!player.isOnline()) {
+                    cancel();
+                    return;
+                }
+                Inventory top = player.getOpenInventory().getTopInventory();
+                if (!(top.getHolder() instanceof CasinoHolder)) {
+                    cancel();
+                    return;
+                }
+                String frameMaterial = frames.get(index % frames.size());
+                ItemStack item = buildAnimationItem(frameMaterial, name, lore);
+                if (item == null) {
+                    cancel();
+                    return;
+                }
+                for (int slot : slots) {
+                    if (slot >= 0 && slot < top.getSize()) {
+                        top.setItem(slot, item);
+                    }
+                }
+                index++;
+                runs++;
+                if (runs >= maxRuns) {
+                    cancel();
+                }
+            }
+        }.runTaskTimer(plugin, 0L, interval);
+    }
+
+    private ItemStack buildAnimationItem(String materialName, String name, List<String> lore) {
+        Material material = Material.matchMaterial(materialName);
+        if (material == null) {
+            return null;
+        }
+        ItemStack item = new ItemStack(material);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            meta.setDisplayName(CC.color(name));
+            List<String> coloredLore = new ArrayList<>();
+            for (String line : lore) {
+                coloredLore.add(CC.color(line));
+            }
+            meta.setLore(coloredLore);
+            item.setItemMeta(meta);
+        }
+        return item;
     }
 
     private GameResult playGame(String game, Random random, int bet, String selection, double houseEdge) {

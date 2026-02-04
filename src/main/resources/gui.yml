@@ -531,3 +531,41 @@ results:
     sound: ENTITY_PLAYER_LEVELUP
   lose:
     sound: ENTITY_VILLAGER_NO
+animations:
+  slots:
+    slots: [0, 1, 2]
+    frames:
+      - RED_DYE
+      - YELLOW_DYE
+      - DIAMOND
+      - GOLD_INGOT
+      - EMERALD
+    name: "&eБарабаны"
+    lore:
+      - "&7Крутим..."
+  dice:
+    slots: [0, 1, 2]
+    frames:
+      - WHITE_DYE
+      - ORANGE_DYE
+      - BLACK_DYE
+    name: "&eКости"
+    lore:
+      - "&7Бросок..."
+  coinflip:
+    slots: [0, 1, 2]
+    frames:
+      - SUNFLOWER
+      - PRISMARINE_SHARD
+    name: "&eМонета"
+    lore:
+      - "&7Вращаем..."
+  roulette:
+    slots: [0, 1, 2]
+    frames:
+      - RED_DYE
+      - BLACK_DYE
+      - GREEN_DYE
+    name: "&eРулетка"
+    lore:
+      - "&7Вращаем..."
