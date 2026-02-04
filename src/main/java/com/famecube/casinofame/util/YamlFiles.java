@@ -16,6 +16,11 @@ public final class YamlFiles {
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             plugin.saveResource(fileName, false);
+        } else if (file.length() == 0) {
+            boolean deleted = file.delete();
+            if (deleted) {
+                plugin.saveResource(fileName, false);
+            }
         }
         return YamlConfiguration.loadConfiguration(file);
     }
