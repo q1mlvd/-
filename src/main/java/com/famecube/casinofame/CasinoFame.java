@@ -31,6 +31,10 @@ public class CasinoFame extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         FileConfiguration messages = YamlFiles.loadOrCreate(this, "messages.yml");
+        if (!messages.contains("prefix")) {
+            YamlFiles.loadOrReplace(this, "messages.yml");
+            messages = YamlFiles.loadOrCreate(this, "messages.yml");
+        }
         YamlFiles.loadOrCreate(this, "gui.yml");
         YamlFiles.loadOrCreateEmpty(this, "players.yml");
         YamlFiles.loadOrCreateEmpty(this, "fairness.yml");

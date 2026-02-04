@@ -20,6 +20,10 @@ public final class Msg {
         return format(messages.getString(key, ""));
     }
 
+    public static java.util.List<String> getList(String key) {
+        return messages.getStringList(key);
+    }
+
     public static String format(String message) {
         return CC.color(message);
     }

@@ -298,6 +298,7 @@ public class GuiManager {
         String roundId = fairnessService.createRoundId();
         long seed = new Random().nextLong();
         int delayTicks = 20 + new Random().nextInt(40);
+        startAnimation(player, delayTicks);
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -322,6 +323,33 @@ public class GuiManager {
                 refreshCurrentMenu(player, game);
             }
         }.runTaskLater(plugin, delayTicks);
+    }
+
+    private void startAnimation(Player player, int totalTicks) {
+        List<String> frames = Msg.getList("animation-frames");
+        if (frames == null || frames.isEmpty()) {
+            return;
+        }
+        int interval = 5;
+        int maxRuns = Math.max(1, totalTicks / interval);
+        new BukkitRunnable() {
+            int index = 0;
+            int runs = 0;
+
+            @Override
+            public void run() {
+                if (!player.isOnline()) {
+                    cancel();
+                    return;
+                }
+                ActionBar.send(player, frames.get(index % frames.size()));
+                index++;
+                runs++;
+                if (runs >= maxRuns) {
+                    cancel();
+                }
+            }
+        }.runTaskTimer(plugin, 0L, interval);
     }
 
     private GameResult playGame(String game, Random random, int bet, String selection, double houseEdge) {
