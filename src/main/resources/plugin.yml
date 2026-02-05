@@ -1,0 +1,15 @@
+name: CasinoFame
+main: com.famecube.casinofame.CasinoFame
+version: 1.0.0
+api-version: 1.16
+author: FameCube
+commands:
+  casino:
+    description: Казино
+    usage: /casino
+  chips:
+    description: Магазин фишек
+    usage: /chips
+permissions:
+  casinofame.admin:
+    default: op
