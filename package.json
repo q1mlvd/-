@@ -1,0 +1,17 @@
+{
+  "name": "zenit-infantry-staff-bot",
+  "version": "1.0.0",
+  "description": "Staff-only Discord bot for \"Пехота Зенита\" server",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "register": "node src/registerCommands.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.1",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "yaml": "^2.4.5"
+  }
+}

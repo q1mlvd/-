@@ -1,0 +1,178 @@
+guildId: "1441421295848915056"
+channels:
+  staffChat: "1441421300814975061"
+  staffJournal: "1441421301217624164"
+roles:
+  ladder:
+    - key: candidate
+      name: "Кандидат"
+      roleId: "1469270989861818495"
+    - key: trainee
+      name: "Стажёр"
+      roleId: "1469271081574600736"
+    - key: junior_helper
+      name: "Младший помощник"
+      roleId: "1441421296373207137"
+    - key: helper
+      name: "Помощник"
+      roleId: "1469271540485980275"
+    - key: senior_helper
+      name: "Старший помощник"
+      roleId: "1469271670966714409"
+    - key: junior_moderator
+      name: "Младший модератор"
+      roleId: "1441421296373207139"
+    - key: moderator
+      name: "Модератор"
+      roleId: "1441421296390111264"
+    - key: senior_moderator
+      name: "Старший модератор"
+      roleId: "1469273818861142180"
+    - key: deputy_curator
+      name: "Заместитель куратора"
+      roleId: "1441421296390111266"
+    - key: curator
+      name: "Куратор"
+      roleId: "1441421296390111267"
+    - key: chief_curator
+      name: "Главный куратор"
+      roleId: "1469274200861573226"
+    - key: junior_admin
+      name: "Младший администратор"
+      roleId: "1441421296390111270"
+    - key: admin
+      name: "Администратор"
+      roleId: "1441421296390111271"
+    - key: senior_admin
+      name: "Старший администратор"
+      roleId: "1469274655348097191"
+    - key: head_admin
+      name: "Главный администратор"
+      roleId: "1469274879458017331"
+accessMatrix:
+  profile_me: candidate
+  profile_user: senior_helper
+  shop_open: candidate
+  shop_inventory: candidate
+  shop_log: senior_moderator
+  shop_active: senior_moderator
+  shop_revoke: senior_admin
+  promo_request: trainee
+  promo_list: senior_helper
+  promo_approve: deputy_curator
+  promo_deny: deputy_curator
+  promo_promote: curator
+  promo_demote: curator
+  panel_send: senior_moderator
+  sp_add: senior_moderator
+  sp_remove: senior_moderator
+  sp_set: senior_moderator
+  sp_log: senior_moderator
+  sp_top: senior_moderator
+  sp_penalty: senior_moderator
+  coins_add: senior_moderator
+  coins_remove: senior_moderator
+  coins_set: senior_moderator
+  coins_log: senior_moderator
+  coins_top: senior_moderator
+  punish_mute: senior_moderator
+  punish_ban: senior_moderator
+  punish_revoke: senior_moderator
+  punish_log: senior_moderator
+  warnings_list: senior_moderator
+  warnings_add: senior_moderator
+  warnings_remove: senior_moderator
+  config_reload: admin
+  health: admin
+  backup_export: admin
+  backup_import: head_admin
+  ticket_done: senior_moderator
+  ticket_deny: curator
+  ticket_refund: curator
+promotions:
+  table:
+    trainee:
+      to: junior_helper
+      sp: 10
+      days: 2
+    junior_helper:
+      to: helper
+      sp: 25
+      days: 5
+    helper:
+      to: senior_helper
+      sp: 40
+      days: 7
+    senior_helper:
+      to: junior_moderator
+      sp: 65
+      days: 10
+    junior_moderator:
+      to: moderator
+      sp: 90
+      days: 12
+    moderator:
+      to: senior_moderator
+      sp: 130
+      days: 15
+    senior_moderator:
+      to: deputy_curator
+      sp: 180
+      days: 18
+    deputy_curator:
+      to: curator
+      sp: 230
+      days: 20
+    curator:
+      to: chief_curator
+      sp: 290
+      days: 25
+    chief_curator:
+      to: junior_admin
+      sp: 360
+      days: 30
+    junior_admin:
+      to: admin
+      sp: 430
+      days: 35
+    admin:
+      to: senior_admin
+      sp: 520
+      days: 45
+punish:
+  limits:
+    mute:
+      junior_moderator: "30m"
+      moderator: "2h"
+      senior_moderator: "24h"
+      deputy_curator: "perm"
+    ban:
+      senior_moderator: "24h"
+      deputy_curator: "72h"
+      curator: "7d"
+      chief_curator: "perm"
+shop:
+  items:
+    custom_role_7d:
+      type: AUTO
+      name: "Кастом роль (7 дней)"
+      price: 250
+      durationDays: 7
+    color_role_7d:
+      type: TICKET
+      name: "Цвет роли (7 дней)"
+      price: 120
+      durationDays: 7
+    custom_tag_7d:
+      type: TICKET
+      name: "Кастом тег (7 дней)"
+      price: 150
+      durationDays: 7
+coins:
+  dailySoftLimit: 80
+warnings:
+  expireDays: 14
+autoPromoteMode: request
+autoCreateRequestOnEligible: false
+sameTargetCooldownHours: 24
+metaTypeDailyLimit: 3
