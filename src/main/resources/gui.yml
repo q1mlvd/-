@@ -1,0 +1,204 @@
+main:
+  title: "&6Казино FameCube"
+  size: 27
+  items:
+    slots:
+      material: "DIAMOND"
+      name: "&bСлоты"
+      lore:
+        - "&7Классические слоты"
+      slot: 10
+    dice:
+      material: "BONE"
+      name: "&eКости"
+      lore:
+        - "&7Ставки на сумму"
+      slot: 12
+    coinflip:
+      material: "GOLD_NUGGET"
+      name: "&6Монетка"
+      lore:
+        - "&7Орёл или решка"
+      slot: 14
+    roulette:
+      material: "REDSTONE"
+      name: "&cРулетка"
+      lore:
+        - "&7Красное, чёрное, зелёное"
+      slot: 16
+    shop:
+      material: "EMERALD"
+      name: "&aМагазин фишек"
+      lore:
+        - "&7Купить или продать фишки"
+      slot: 22
+    info:
+      material: "BOOK"
+      name: "&fИнформация"
+      lore:
+        - "&7Ставки только фишками"
+      slot: 4
+    exit:
+      material: "BARRIER"
+      name: "&cВыход"
+      lore:
+        - "&7Закрыть меню"
+      slot: 26
+shop:
+  title: "&2Магазин фишек"
+  size: 45
+  items:
+    buy100:
+      material: "LIME_DYE"
+      name: "&aКупить +100"
+      lore:
+        - "&7Стоимость зависит от курса"
+      slot: 10
+    buy500:
+      material: "LIME_DYE"
+      name: "&aКупить +500"
+      lore:
+        - "&7Стоимость зависит от курса"
+      slot: 11
+    buy1000:
+      material: "LIME_DYE"
+      name: "&aКупить +1000"
+      lore:
+        - "&7Стоимость зависит от курса"
+      slot: 12
+    buy5000:
+      material: "LIME_DYE"
+      name: "&aКупить +5000"
+      lore:
+        - "&7Стоимость зависит от курса"
+      slot: 13
+    buy10000:
+      material: "LIME_DYE"
+      name: "&aКупить +10000"
+      lore:
+        - "&7Стоимость зависит от курса"
+      slot: 14
+    sell100:
+      material: "RED_DYE"
+      name: "&cПродать -100"
+      lore:
+        - "&7Деньги по курсу"
+      slot: 28
+    sell500:
+      material: "RED_DYE"
+      name: "&cПродать -500"
+      lore:
+        - "&7Деньги по курсу"
+      slot: 29
+    sell1000:
+      material: "RED_DYE"
+      name: "&cПродать -1000"
+      lore:
+        - "&7Деньги по курсу"
+      slot: 30
+    sell5000:
+      material: "RED_DYE"
+      name: "&cПродать -5000"
+      lore:
+        - "&7Деньги по курсу"
+      slot: 31
+    sell10000:
+      material: "RED_DYE"
+      name: "&cПродать -10000"
+      lore:
+        - "&7Деньги по курсу"
+      slot: 32
+    balance:
+      material: "PAPER"
+      name: "&eВаши фишки: %chips%"
+      lore:
+        - "&7Курс: %rate%"
+      slot: 22
+    back:
+      material: "BARRIER"
+      name: "&cНазад"
+      lore:
+        - "&7В главное меню"
+      slot: 40
+bet:
+  add100:
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "&a+100"
+    lore:
+      - "&7Добавить к ставке"
+  add500:
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "&a+500"
+    lore:
+      - "&7Добавить к ставке"
+  add1000:
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "&a+1000"
+    lore:
+      - "&7Добавить к ставке"
+  add5000:
+    material: "LIME_STAINED_GLASS_PANE"
+    name: "&a+5000"
+    lore:
+      - "&7Добавить к ставке"
+  max:
+    material: "GOLD_BLOCK"
+    name: "&6МАКС"
+    lore:
+      - "&7Максимальная ставка"
+  clear:
+    material: "BARRIER"
+    name: "&cСБРОС"
+    lore:
+      - "&7Сбросить ставку"
+  start:
+    material: "EMERALD_BLOCK"
+    name: "&aСТАРТ"
+    lore:
+      - "&7Начать игру"
+  betinfo:
+    material: "PAPER"
+    name: "&eСтавка: %bet%"
+    lore:
+      - "&7Ваши фишки: %chips%"
+choices:
+  dice_under:
+    material: "BLUE_WOOL"
+    name: "&9Меньше 7"
+    lore:
+      - "&7Сумма 2-6"
+  dice_over:
+    material: "RED_WOOL"
+    name: "&cБольше 7"
+    lore:
+      - "&7Сумма 8-12"
+  dice_exact:
+    material: "WHITE_WOOL"
+    name: "&fРовно 7"
+    lore:
+      - "&7Сумма 7"
+  coin_heads:
+    material: "SUNFLOWER"
+    name: "&6Орёл"
+    lore:
+      - "&7Сторона монеты"
+  coin_tails:
+    material: "FERN"
+    name: "&aРешка"
+    lore:
+      - "&7Сторона монеты"
+  roulette_red:
+    material: "RED_WOOL"
+    name: "&cКрасное"
+    lore:
+      - "&7Шанс 7/15"
+  roulette_black:
+    material: "BLACK_WOOL"
+    name: "&8Чёрное"
+    lore:
+      - "&7Шанс 7/15"
+  roulette_green:
+    material: "LIME_WOOL"
+    name: "&aЗелёное"
+    lore:
+      - "&7Шанс 1/15"

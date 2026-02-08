@@ -1,0 +1,45 @@
+houseEdgePercent: 5.0
+minBetChips: 100
+maxBetChips: 10000
+cooldownSeconds: 2
+refundOnQuit: true
+exchange:
+  moneyPerChip: 1.0
+animation:
+  enabled: true
+  durationTicks: 40
+  stepTicks: 4
+sounds:
+  enabled: true
+particles:
+  enabled: true
+slots:
+  symbols:
+    - id: EMERALD
+      name: "Изумруд"
+      weight: 30
+      payout3: 3.0
+      payout2: 1.5
+    - id: DIAMOND
+      name: "Алмаз"
+      weight: 20
+      payout3: 5.0
+      payout2: 2.0
+    - id: GOLD_INGOT
+      name: "Золото"
+      weight: 25
+      payout3: 2.5
+      payout2: 1.2
+    - id: IRON_INGOT
+      name: "Железо"
+      weight: 25
+      payout3: 2.0
+      payout2: 1.1
+dice:
+  payoutUnderOver: 2.0
+  payoutExact: 5.0
+coinflip:
+  payout: 2.0
+roulette:
+  payoutRedBlack: 2.0
+  payoutGreen: 14.0
